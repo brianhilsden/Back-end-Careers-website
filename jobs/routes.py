@@ -19,7 +19,7 @@ def home_page():
   return render_template('home.html')
 
 
-@app.route("/register",methods=['GET','POST'])
+@app.route("/register",methods=['POST','GET'])
 def registration():
   form =Registration()
   if form.validate_on_submit():
