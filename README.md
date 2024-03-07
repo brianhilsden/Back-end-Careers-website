@@ -1,4 +1,1 @@
-TITLE: JOB APPLICATION WEBSITE (work in progress)
-DESCRIPTION: This flask app allows users to apply for available jobs.
-Upon submission of the application, they are shown their submitted details on a separate page and those details are sent to my online database.
-I am able to view applications,add or remove jobs from the website
+TITLE: Back-end careers website Summary: This is a functional back-end website that accesses and modifies database data. A logged-in user has permission to view, add, remove, and modify job data. The changes are reflected immediately on the front-end website as well They can also view job applications made on the front-end side and respond to them
