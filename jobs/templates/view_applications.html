@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block title%}
+    Applications
+{%endblock%}
+{%block content%}
+    <table class="table">
+        <tr>
+            <th scope="col">Application id</th>
+            <th scope="col">Job id</th>
+            <th scope="col">Applicant name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Github</th>
+            <th scope="col">Date/Time Applied</th>
+            <th scope="col">Contact</th>
+        </tr>
+        {%for app in applications%}
+        <tr>
+            <td>{{app['id']}}</td>
+            <td><a href="/job/{{app['job_id']}}" style="text-decoration: none;color: purple;cursor: pointer;" title="Click to view details">{{app['job_id']}} </a></td>
+            <td>{{app['full_name']}}</td>
+            <td>{{app['email']}}</td>
+            <td><a href="{{app['github']}}">{{app['github']}}</a></td>
+            <td>{{app['created_at']}}</td>
+            <td style="display: flex;justify-content: center"><a href="mailto:{{app['email']}}" style="text-decoration: none;">📧</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+
+{%endblock%}

@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%block title%}
+  Job Page
+{%endblock%}
+
+{%block content%}
+ <div style="padding-left: 2rem;">
+  
+    <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+    <div>
+      {% for job in jobs %}
+        {% include 'jobitem.html' %}
+      {% endfor %}
+    </div>
+    <div class="text-center">
+    <a class="btn btn-primary btn-lg" href="/newJobs">Add Jobs</a>
+    </div>
+  </div>
+
+{%endblock%}

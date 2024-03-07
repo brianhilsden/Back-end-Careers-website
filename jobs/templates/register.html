@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block title%}
+    Registration Page
+{%endblock%}
+
+{%block content%}
+    <form method="POST">
+        {{form.hidden_tag()}}
+
+        {{form.username.label()}}
+        {{form.username(class="form-control", placeholder="johndoe")}}
+
+        {{form.email_address.label()}}
+        {{form.email_address(class="form-control", placeholder="johndoe@xyz.com")}}
+
+        {{form.setPassword.label()}}
+        {{form.setPassword(class="form-control", placeholder="Password")}}
+
+        {{form.confirmPassword.label()}}
+        {{form.confirmPassword(class="form-control", placeholder="Password")}}
+        <br>
+        <div class="text-center">
+        {{form.submit(class="btn btn-primary")}}
+        </div>
+
+    </form>
+{%endblock%}

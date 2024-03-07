@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block title%}
+    Login Page
+{%endblock%}
+
+{%block content%}
+
+
+    <form method="POST">
+        {{form.hidden_tag()}}
+        {{form.username.label()}}
+        {{form.username(class="form-control",placeholder="johndoe")}}
+        {{form.password.label()}}
+        {{form.password(class="form-control",placeholder="password")}}
+
+        <br>
+        <div class="text-center">
+        {{form.submit(class="btn btn-primary")}}
+        </div>
+
+
+
+    </form>
+
+{%endblock%}

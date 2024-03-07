@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+
+{%block title%}
+    Edit Job
+{%endblock%}
+
+{%block content%}
+<form action="/jobEdited/{{id}}" method="POST">
+    <div class="form-group">
+        <label for="title">
+            Title: </label>
+        <input type="text" class="form-control" id="title" name="Title" value={{title}}>
+
+    </div>
+    <div class="form-group">
+        <label for="location">Location:</label>
+
+        <input class="form-control" type="text" id="location" name="Location" value={{location}}>
+
+    </div>
+
+    <div class="form-group">
+        <label for="salary">Salary:</label>
+        <input class="form-control" type="number" id="salary" name="Salary" value={{salary}}>
+
+    </div>
+
+    <div class="form-group">
+        <label for="currency">Currency:</label>
+        <input class="form-control" type="text" id="currency" name="Currency" value={{currency}}>
+    </div>
+
+    <div class="form-group">
+        <label for="responsibilities">
+            Responsibilities:</label>
+        <textarea class="form-control" name="Responsibilities" id="responsibilities" cols="30">{{responsibilities}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="requirements">Requirements:</label>
+        <textarea class="form-control" name="Requirements" id="requirements" cols="30">{{requirements}}</textarea>
+    </div><br>
+
+    <button style="margin-left: 40%;" class="btn btn-primary">Save Changes</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+    <button class="btn"><a href="/jobs">Back to Job Page</a></button>
+    
+</form>
+
+
+{%endblock%}

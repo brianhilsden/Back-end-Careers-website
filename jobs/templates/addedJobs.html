@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%block title%}
+    Added Job
+{%endblock%}
+    
+{%block content%}
+    <h2 style="text-align: center;">Job added successfully</h2>
+    <h3>Title</h3>
+    <p>{{jobs['Title']}}</p>
+    <h3>Location</h3>
+    <p> {{jobs['Location']}}</p>
+    <h3>Salary</h3>
+    <p>{{jobs['Salary']}}</p>
+    <h3>Currency</h3>
+    <p>{{jobs['Currency']}}</p>
+    <h3>Responsibilities</h3>
+    <p>{{jobs['Responsibilities']}}</p>
+    <h3>Requirements</h3>
+    <p>{{jobs['Requirements']}}</p>
+    <button class="btn btn-success"><a style="text-decoration: none;color: white;" href="/">Back to HomePage</a></button>
+
+{%endblock%}

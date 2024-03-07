@@ -1,0 +1,35 @@
+<div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
+  <div class="col-10">
+    <h4 style="color:rgb(120,120,120); margin-bottom:4px;">
+      {{job['title']}}
+    </h4>
+    <div>
+      <b>Location:</b> {{job['location']}}
+    </div>
+  </div>
+
+  <div class="col-2 padding-right:16px">
+    <button class="btn btn-info"><a href="/job/{{job['id']}}" style="text-decoration: none;color: white;">More
+        Details</a></button>
+  </div>
+  <div style="margin-left: 84.6%;">
+    <button class="btn btn-danger" onclick="confirmDelete()"> <a style="text-decoration: none;color: black;"
+        class="deleteJob" href="">Remove Job</a></button>
+  </div>
+
+
+  <script type="text/javaScript">
+      function confirmDelete(){
+        let text="Note: This will permanently remove the job!";
+        var anchors=document.querySelectorAll("a.deleteJob")  
+        
+        if  (confirm(text)==true){    
+          anchors.forEach(anchor=>anchor.href="/deleted/{{job['id']}}")
+          }
+        else{
+          anchors.forEach(anchor=>anchor.href="/")
+        }
+      }
+  </script>
+
+</div>
