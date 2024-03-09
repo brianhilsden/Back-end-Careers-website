@@ -8,6 +8,7 @@
             <th scope="col">Application id</th>
             <th scope="col">Job id</th>
             <th scope="col">Applicant name</th>
+            <th scope="col">Applicant id</th>
             <th scope="col">Email</th>
             <th scope="col">Github</th>
             <th scope="col">Date/Time Applied</th>
@@ -18,6 +19,7 @@
             <td>{{app['id']}}</td>
             <td><a href="/job/{{app['job_id']}}" style="text-decoration: none;color: purple;cursor: pointer;" title="Click to view details">{{app['job_id']}} </a></td>
             <td>{{app['full_name']}}</td>
+            <td>{{app['applicant_id']}}</td>
             <td>{{app['email']}}</td>
             <td><a href="{{app['github']}}">{{app['github']}}</a></td>
             <td>{{app['created_at']}}</td>

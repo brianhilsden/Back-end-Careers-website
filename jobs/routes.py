@@ -1,10 +1,10 @@
 from jobs import app,db
-from flask import render_template,request,redirect,url_for,flash
-from jobs.database import load_jobs_from_db,load_job_from_db,add_to_database,add_new_jobs,load_applications,save_edited_job,delete_job,Admin
+from flask import render_template,request,redirect,url_for,flash,jsonify
+from jobs.database import load_jobs_from_db,load_job_from_db,add_to_database,add_new_jobs,load_applications,save_edited_job,delete_job,Admin,Applicants
 from flask_login import login_user,logout_user,login_required,current_user
 from jobs.accounts import Registration,Login
 
-@app.route("/data")
+@app.route("/data",methods=["POST","GET"])
 def frontend():
    jobs=load_jobs_from_db()
    titles=["id","Job","Location","Salary","Currency","Responsibilities","Requirements"]
@@ -14,10 +14,50 @@ def frontend():
      newjobs.append(item)
    return newjobs
 
+@app.route('/applications',methods=['POST'])
+def appData():
+  applic=request.get_json()
+  add_to_database(applic)
+  return {"201":'Done'}, 201
+
+
+@app.route('/applicantregister',methods=["POST"])
+def register_applicant():
+  email=request.json["email"]
+  password=request.json["passwordApp"]
+  applicant=Applicants.query.filter_by(email=email).first()
+
+  if applicant:
+    return jsonify({"error":"409"}),409
+  new_applicant=Applicants(email=email,password=password)
+  db.session.add(new_applicant)
+  db.session.commit()
+  return jsonify({
+    "id":new_applicant.id,"email":new_applicant.email
+  })
+
+@app.route("/applicantlogin",methods=["POST"])
+def login_applicant():
+  email=request.json["email"]
+  password=request.json["passwordLogin"]
+  applicant=Applicants.query.filter_by(email=email).first()
+
+  if applicant is None:
+    return jsonify({"error":"401"}),401
+  if not applicant.confirm_password(attempted_password=password):
+    return jsonify({"error":"401"}),401
+  return jsonify({
+    "id":applicant.id,"email":app.email
+  })
+
+@app.route("/applicantlogout",methods=["POST"])
+def logout_applicant():
+  return "200"
+
+
 @app.route("/")
 def home_page():
   return render_template('home.html')
-
 
 @app.route("/register",methods=['POST','GET'])
 def registration():
