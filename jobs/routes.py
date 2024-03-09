@@ -47,7 +47,7 @@ def login_applicant():
   if not applicant.confirm_password(attempted_password=password):
     return jsonify({"error":"401"}),401
   return jsonify({
-    "id":applicant.id,"email":app.email
+    "id":applicant.id,"email":applicant.email
   })
 
 @app.route("/applicantlogout",methods=["POST"])
