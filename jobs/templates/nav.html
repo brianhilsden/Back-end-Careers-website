@@ -1,12 +1,12 @@
-<nav class="navbar shadow-sm fixed-top bg-white">
-    <div style="display: flex;flex-direction: row;justify-content:space-between;align-items: center;width: 100%;">
+<nav >
+    <div >
       <div>
-        <a class="navbar-brand" href="/">
+        <a href="/">
           <img src="./static/hunters-race-MYbhN8KaaEc-unsplash.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
           Royalty inc.
         </a>
       </div>
-      <div style="display: flex;justify-content: space-between;gap: 2rem;">
+      <div style="display: flex;justify-content: space-around;gap: 2vw;">
         {%if current_user.is_authenticated%}
         <div style="color:darkblue;">Admin: {{current_user.username}}</div>
         <a href="/jobs">Posted Jobs</a>
