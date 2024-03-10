@@ -83,7 +83,7 @@ def login():
       login_user(attempted_user)
       return redirect(url_for('jobs_page'))
     else:
-      flash('Username and password do not match',category='danger')
+      flash('Username and password do not match!',category='danger')
   return render_template('login.html',form=form)
 
 @app.route("/logout")
