@@ -4,6 +4,9 @@
         <a href="/">
           <img src="./static/hunters-race-MYbhN8KaaEc-unsplash.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
           Royalty inc.
+          {%if current_user.is_authenticated%}
+          <div style="color:darkblue;">Admin: {{current_user.username}}</div>
+          {%endif%}
         </a>
       </div>
       <div style="display: flex;justify-content: space-around;gap: 2vw;">
