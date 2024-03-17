@@ -1,38 +1,18 @@
-<nav class="navbar navbar-expand-lg mb-2 bg-light " >
-  <div class="container-fluid ">
-
-    <a class="navbar-brand" href="/">
-      <img src="./static/hunters-race-MYbhN8KaaEc-unsplash.jpg" alt="" width="30" height="24"
-        class="d-inline-block align-text-top">
-      Royalty inc.
-      {%if current_user.is_authenticated%}
-      <div style="color:darkblue;">Admin: {{current_user.username}}</div>
-      {%endif%}
-
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
+<nav >
+    <div >
+      <div>
+        <a href="/">
+          <img src="./static/hunters-race-MYbhN8KaaEc-unsplash.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          Royalty inc.
+        </a>
+      </div>
+      <div style="display: flex;justify-content: space-around;gap: 2vw;">
         {%if current_user.is_authenticated%}
-
-        <li class="nav-item">
-          <a class="nav-link" href="/jobs">Posted Jobs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/newJobs">Add Jobs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('application_data')}}">View Applications</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
-        </li>
+        <div style="color:darkblue;">Admin: {{current_user.username}}</div>
+        <a href="/jobs">Posted Jobs</a>
+        <a href="/newJobs">Add Jobs</a>
+        <a href="/viewApplications">View Applications</a>
+        <a href="{{url_for('logout')}}">Logout</a>
         {%else%}
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('registration')}}">Register Account</a>
@@ -41,8 +21,7 @@
           <a class="nav-link" href="{{url_for('login')}}">Login</a>
         </li>
         {%endif%}
-      </ul>
-
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  <div style="height:56px"></div>

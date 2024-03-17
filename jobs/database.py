@@ -46,7 +46,6 @@ engine = create_engine("mysql+pymysql://root:-BgbEEE646GGeEF-Fg316DAG2ff55Gce@ro
 """ engine = create_engine("mysql+pymysql://avnadmin:AVNS_cVN41Ne4egx4yWk35tZ@mysql-7a9d636-royalty-inc20.a.aivencloud.com:16051/defaultdb?charset=utf8mb4") """
 """ engine = create_engine("mysql+pymysql://root:Royalty20@127.0.0.1:3306/sys?charset=utf8mb4") """
 
-
 def load_jobs_from_db():
   with engine.connect() as conn:
     result = conn.execute(text("select * from jobs"))
