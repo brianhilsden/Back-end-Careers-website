@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 {%block title%}
-    {{title}}
+{{title}}
 {%endblock%}
 
 {%block content%}
@@ -16,7 +16,10 @@
     <p>{{responsibilities}}</p>
     <h3>Requirements</h3>
     <p>{{requirements}}</p>
-    <button class="btn btn-secondary" style="margin-left: 45%;"><a href="/job/{{id}}/edit" style="text-decoration: none;color: white;">Edit Job</a></button>
-    <button class="btn"><a href="/jobs">Back to HomePage</a></button>
+    <div class="d-flex justify-content-center" style="gap: 1rem;">
+        <button class="btn btn-secondary"><a href="/job/{{id}}/edit" style="text-decoration: none;color: white;">Edit Job</a></button>
+        <button class="btn"><a href="/jobs">Back to HomePage</a></button>
+    </div>
+   
 
 {%endblock%}

@@ -3,8 +3,9 @@
     Applications
 {%endblock%}
 {%block content%}
-    <table class="table">
-        <tr>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <tr class="table-primary">
             <th scope="col">Application id</th>
             <th scope="col">Job id</th>
             <th scope="col">Applicant name</th>
@@ -15,7 +16,7 @@
             <th scope="col">Contact</th>
         </tr>
         {%for app in applications%}
-        <tr>
+        <tr class="table-secondary">
             <td>{{app['id']}}</td>
             <td><a href="/job/{{app['job_id']}}" style="text-decoration: none;color: purple;cursor: pointer;" title="Click to view details">{{app['job_id']}} </a></td>
             <td>{{app['full_name']}}</td>
@@ -28,4 +29,7 @@
         {%endfor%}
     </table>
 
+
+</div>
+   
 {%endblock%}

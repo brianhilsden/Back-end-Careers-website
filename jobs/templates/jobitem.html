@@ -1,5 +1,5 @@
 <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
-  <div class="col-10">
+  <div class="col-8">
     <h4 style="color:rgb(120,120,120); margin-bottom:4px;">
       {{job['title']}}
     </h4>
@@ -8,26 +8,27 @@
     </div>
   </div>
 
-  <div>
-    <button class="btn btn-info"><a href="/job/{{job['id']}}" style="text-decoration: none;color: white;">More
-        Details</a></button>
-  </div>&nbsp;&nbsp;
-  <div>
-    <button class="btn btn-danger" onclick="confirmDelete()"> <a style="text-decoration: none;color: black;"
-        class="deleteJob" href="">Remove Job.</a></button>
+  <div class="col-4">
+   <a href="/job/{{job['id']}}" style="text-decoration: none;color: white;">  <button class="btn btn-info mb-1 mt-1">More
+      Details </button> </a>
+
+ <a style="text-decoration: none;"
+      class="deleteJob" href=""> <button class="btn btn-danger" onclick="confirmDelete()" style="color: black;">  Remove Job</button></a>
   </div>
+    
+  
 
 
   <script type="text/javaScript">
       function confirmDelete(){
         let text="Note: This will permanently remove the job!";
-        var anchors=document.querySelectorAll("a.deleteJob")  
+        let anchors=document.querySelectorAll("a.deleteJob")  
         
         if  (confirm(text)==true){    
           anchors.forEach(anchor=>anchor.href="/deleted/{{job['id']}}")
           }
         else{
-          anchors.forEach(anchor=>anchor.href="/")
+          anchors.forEach(anchor=>anchor.href="/jobs")
         }
       }
   </script>
