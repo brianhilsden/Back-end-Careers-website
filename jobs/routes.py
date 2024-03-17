@@ -14,11 +14,25 @@ def frontend():
      newjobs.append(item)
    return newjobs
 
+@app.route('/sendApplications',methods=["POST","GET"])
+def application_send():
+   applications=load_applications()
+   titles=["id","Job_Id","Full_name","Email","Github","Time_applied"]
+   newApplications=[]
+   for app in applications:
+     item=dict(zip(titles,app))
+     newApplications.append(item)
+   return newApplications
+
+   
+
 @app.route('/applications',methods=['POST'])
 def appData():
   applic=request.get_json()
   add_to_database(applic)
   return {"201":'Done'}, 201
+
+
 
 
 @app.route('/applicantregister',methods=["POST"])
